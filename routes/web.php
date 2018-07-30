@@ -47,17 +47,30 @@ Route::get('/shoutout/{text}', function($text){
 
 })->name('shoutout');
 
+Route::get('/middleware/{age}', function($age){
+	return view('age', array('age'=>$age));
+})->middleware('age');
 
 
 
 
-
-Route::get('/basic-arithmetic/{tax?}/{tex?}/{tox?}/{ans?}', function($tax = null, $tex = null,$tox = null, $ans = null){
 	
+// Route::get('/basic-arithmetic/{tax?}/{tex?}/{tox?}/{ans?}', function($tax = null, $tex = null,$tox = null, $ans = null){
 
-	return view('basic-arithmetic',array('tax'=>$tax,
-										 'tex'=>$tex,
-										 'tox'=>$tox,
+// 	return view('basic-arithmetic',array('tax'=>$tax,
+// 										 'tex'=>$tex,
+// 										 'tox'=>$tox,
+										 
+// 						 				));
+// })->name('basic-arithmetic');
+
+
+
+Route::get('/basic-arithmetic/{tax?}/{tex?}/{tox?}', function($tax = null, $tex = null,$tox = null){
+
+	return view('basicarithmetic/'.$tax, array('tax'=>$tax,
+											  'tex'=>$tex,
+											  'tox'=>$tox,
 										 
 						 				));
-})->name('basic-arithmetic');
+})->name('basicarithmetic');
