@@ -79,3 +79,17 @@ Route::get('/basic-arithmetic/{tax?}/{tex?}/{tox?}', function($tax = null, $tex 
 										 
 						 				));
 })->name('basicarithmetic');
+
+
+Route::get('/crushes', 'CrushesController@index')->name('crushes.index');
+
+Route::get('/crushes/create', 'CrushesController@create')->name('crushes.create');
+
+Route::post('/crushes/store', 'CrushesController@store')->name('crushes.store');
+
+Route::get('/crushes/{id}/edit', 'CrushesController@edit')->name('crushes.id.edit');
+
+Route::post('/crushes/{id}update', 'CrushesController@update')->name('crushes.id.update');
+
+
+Route::get('/crushes/{id}/destroy', 'CrushesController@destroy')->name('crushes.id.destroy');
